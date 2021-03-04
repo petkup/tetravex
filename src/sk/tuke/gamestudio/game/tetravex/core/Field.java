@@ -19,5 +19,22 @@ public class Field {
     private void generate() {
     }
 
+    public GameState getState() {
+        return state;
+    }
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public void addTile(int row, int column){
+
+    }
+
+
 
 }

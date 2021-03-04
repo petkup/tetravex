@@ -14,58 +14,58 @@ public class Tile
     }
 
     /* Edge colors */
-    private int mNorth;
-    private int mWest;
-    private int mEast;
-    private int mSouth;
+    private int North;
+    private int West;
+    private int East;
+    private int South;
 
     /* Solution location */
-    private int mX;
-    private int mY;
+    private int pozitionX;
+    private int pozitionY;
 
     public Tile (int x, int y)
     {
-        this.mX = x;
-        this.mY = y;
+        this.pozitionX = x;
+        this.pozitionY = y;
     }
 
     public int getX() {
-        return this.mX;
+        return this.pozitionX;
     }
 
     public int getY() {
-        return this.mY;
+        return this.pozitionY;
     }
 
     public int getNorth() {
-        return mNorth;
+        return North;
     }
 
     public void setNorth(int north) {
-        this.mNorth = north;
+        this.North = north;
     }
 
     public int getWest() {
-        return mWest;
+        return West;
     }
 
     public void setWest(int mWest) {
-        this.mWest = mWest;
+        this.West = mWest;
     }
 
     public int getEast() {
-        return mEast;
+        return East;
     }
 
     public void setEast(int mEast) {
-        this.mEast = mEast;
+        this.East = mEast;
     }
 
     public int getSouth() {
-        return mSouth;
+        return South;
     }
 
     public void setSouth(int mSouth) {
-        this.mSouth = mSouth;
+        this.South = mSouth;
     }
 }
