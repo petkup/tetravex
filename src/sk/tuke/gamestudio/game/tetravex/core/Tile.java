@@ -3,7 +3,7 @@ package sk.tuke.gamestudio.game.tetravex.core;
 public class Tile
 {
 
-    private TileState state;
+    private TileState state = TileState.EMPTY;
 
     public TileState getState() {
         return state;
@@ -13,59 +13,41 @@ public class Tile
         this.state = state;
     }
 
-    /* Edge colors */
-    private int North;
-    private int West;
-    private int East;
-    private int South;
+    // 4 strany kachlicky
+    private int top;
+    private int left;
+    private int right;
+    private int bottom;
 
-    /* Solution location */
-    private int pozitionX;
-    private int pozitionY;
-
-    public Tile (int x, int y)
-    {
-        this.pozitionX = x;
-        this.pozitionY = y;
+    public int getTop() {
+        return top;
     }
 
-    public int getX() {
-        return this.pozitionX;
+    public int getLeft() {
+        return left;
     }
 
-    public int getY() {
-        return this.pozitionY;
+    public int getRightt() {
+        return right;
     }
 
-    public int getNorth() {
-        return North;
+    public int getBottom() {
+        return bottom;
     }
 
-    public void setNorth(int north) {
-        this.North = north;
+    public void setTop(int top) {
+        this.top = top;
     }
 
-    public int getWest() {
-        return West;
+    public void setLeft(int left) {
+        this.left = left;
     }
 
-    public void setWest(int mWest) {
-        this.West = mWest;
+    public void setRight(int right) {
+        this.right = right;
     }
 
-    public int getEast() {
-        return East;
-    }
-
-    public void setEast(int mEast) {
-        this.East = mEast;
-    }
-
-    public int getSouth() {
-        return South;
-    }
-
-    public void setSouth(int mSouth) {
-        this.South = mSouth;
+    public void setBottom(int bottom) {
+        this.bottom = bottom;
     }
 }
