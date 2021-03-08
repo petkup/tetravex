@@ -1,4 +1,4 @@
-package sk.tuke.gamestudio;
+package sk.tuke.gamestudio.game.tetravex;
 
 import sk.tuke.gamestudio.game.tetravex.consoleui.ConsoleUI;
 import sk.tuke.gamestudio.game.tetravex.core.Field;

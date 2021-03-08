@@ -3,7 +3,7 @@ package sk.tuke.gamestudio.game.tetravex.core;
 public class Tile
 {
 
-    private TileState state = TileState.EMPTY;
+    private TileState state = TileState.FILLED;
 
     public TileState getState() {
         return state;

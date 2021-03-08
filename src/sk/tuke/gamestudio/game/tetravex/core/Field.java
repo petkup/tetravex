@@ -21,6 +21,7 @@ public class Field {
     private final Tile tile7 = new Tile();
     private final Tile tile8 = new Tile();
     private final Tile tile9 = new Tile();
+    private final Tile controlTile = new Tile();
 
     public Field(int rowCount, int columnCount) {
         this.rowCount = rowCount;
@@ -98,7 +99,10 @@ public class Field {
 
     private void shuffleList() {
         shuffleTiles(pole);
-        newPole.addAll(pole);
+        for (int i = 0; i < getColumnCount(); i++){
+            controlTile.setState(TileState.EMPTY);
+            newPole.add(controlTile);
+        }
     }
 
     public List<Tile> pole = new ArrayList<>();
@@ -124,6 +128,7 @@ public class Field {
     //change pozition of pieces in new list
     public void addTile(int tileposition, int newPosition){
         newPole.set(newPosition, pole.get(tileposition));
+        pole.set(tileposition,controlTile);
         chceckIfBoardIsCorrect();
         if (newPole.get(newPosition).getState() == TileState.EMPTY) {
             newPole.get(newPosition).setState(TileState.FILLED);
