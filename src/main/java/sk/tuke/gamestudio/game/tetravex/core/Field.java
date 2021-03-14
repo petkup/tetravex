@@ -11,6 +11,8 @@ public class Field {
     private final int rowCount;
     private final int columnCount;
     private final Random rand;
+    private long startMillis;
+
     // create 9 piecies
     private final Tile tile1 = new Tile();
     private final Tile tile2 = new Tile();
@@ -34,6 +36,7 @@ public class Field {
         generateTilesEdges();
         addToList();
         shuffleList();
+        startMillis = System.currentTimeMillis();
     }
 
     // Give every piece random edge value, neighbor edges must equal.
@@ -97,6 +100,7 @@ public class Field {
         originalPole.addAll(pole);
     }
 
+    //shuffle tiles to random position
     private void shuffleList() {
         shuffleTiles(pole);
         for (int i = 0; i < getColumnCount(); i++){
@@ -105,9 +109,12 @@ public class Field {
         }
     }
 
-    public List<Tile> pole = new ArrayList<>();
-    public List<Tile> originalPole = new ArrayList<>(pole);
-    public List<Tile> newPole = new ArrayList<>();
+    //created field, that will shuffel tiles to random postions
+    public List<Tile> pole = new ArrayList<Tile>();
+    //field with the original field solution
+    public List<Tile> originalPole = new ArrayList<Tile>(pole);
+    //new empty field to put tiles to
+    public List<Tile> newPole = new ArrayList<Tile>();
 
     private void shuffleTiles(List<Tile> list){
         Collections.shuffle(list);
@@ -127,19 +134,27 @@ public class Field {
 
     //change pozition of pieces in new list
     public void addTile(int tileposition, int newPosition){
+        if (newPole.get(newPosition).getState() == TileState.FILLED) {
+            throw new IllegalArgumentException("Position is already filled");
+        }
+        if (pole.get(tileposition).getState() == TileState.EMPTY) {
+            throw new IllegalArgumentException("Position is empty");
+        }
         newPole.set(newPosition, pole.get(tileposition));
         pole.set(tileposition,controlTile);
         chceckIfBoardIsCorrect();
-        if (newPole.get(newPosition).getState() == TileState.EMPTY) {
-            newPole.get(newPosition).setState(TileState.FILLED);
-        }
     }
 
     //remove piece from new list
-    public void removeTile(List<Tile> list, int tileposition){
-        if (list.get(tileposition).getState() == TileState.FILLED) {
-            list.get(tileposition).setState(TileState.EMPTY);
+    public void removeTile(int tileposition, int newPosition){
+        if (newPole.get(tileposition).getState() == TileState.EMPTY) {
+            throw new IllegalArgumentException("Position is empty");
         }
+        if (pole.get(newPosition).getState() == TileState.FILLED) {
+            throw new IllegalArgumentException("Position is already filled");
+        }
+        pole.set(newPosition, newPole.get(tileposition));
+        newPole.set(tileposition, controlTile);
     }
 
     private boolean chceckIfBoardIsFilled(){
@@ -160,7 +175,7 @@ public class Field {
         }
     }
 
-    public void timer(){
-
+    public int getScore(){
+        return (int)(System.currentTimeMillis() - startMillis) / 1000;
     }
 }
