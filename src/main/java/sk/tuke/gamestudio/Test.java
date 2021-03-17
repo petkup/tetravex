@@ -2,9 +2,13 @@ package sk.tuke.gamestudio;
 
 import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.game.tetravex.core.Tile;
+import sk.tuke.gamestudio.game.tetravex.entity.Score;
+import sk.tuke.gamestudio.game.tetravex.service.ScoreService;
+import sk.tuke.gamestudio.game.tetravex.service.ScoreServiceJDBC;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.sql.DriverManager;
 
@@ -14,6 +18,10 @@ public class Test {
           try (var connection = DriverManager.getConnection("jdbc:postgresql://localhost/gamestudio", "postgres", "postgres")){
                System.out.println("----------");
           }
+          //ScoreService service = new ScoreServiceJDBC();
+          //service.addScore(new Score("tetravex", "peter", 100, new Date()));
+          //System.out.println(service.getTopScore("tetravex"));
+
      }
 
      //jdbc:postgresql://host/database

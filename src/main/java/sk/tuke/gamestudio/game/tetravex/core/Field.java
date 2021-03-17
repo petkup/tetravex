@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Field {
     private GameState state = GameState.PLAYING;
@@ -176,6 +177,6 @@ public class Field {
     }
 
     public int getScore(){
-        return (int)(System.currentTimeMillis() - startMillis) / 1000;
+        return (int) (System.currentTimeMillis() - startMillis) / 1000;
     }
 }

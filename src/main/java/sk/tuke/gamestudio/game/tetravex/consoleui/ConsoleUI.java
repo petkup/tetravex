@@ -4,16 +4,64 @@ import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.game.tetravex.core.GameState;
 import sk.tuke.gamestudio.game.tetravex.core.Tile;
 import sk.tuke.gamestudio.game.tetravex.core.TileState;
+import sk.tuke.gamestudio.game.tetravex.entity.Score;
+import sk.tuke.gamestudio.game.tetravex.service.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleUI {
     private final Field field;
+
     private final Scanner scanner = new Scanner(System.in);
+
+    private ScoreService scoreService = new ScoreServiceJDBC();
+
+    private CommentService commentService = new CommentServiceJDBC();
+
+    private RatingService ratingService = new RatingServiceJDBC();
 
     public ConsoleUI(Field field) {
         this.field = field;
+    }
+
+
+    private void displayGameMenu() {
+        System.out.println();
+        System.out.println("(1) Start new game");
+        System.out.println("(2) Show rules");
+        System.out.println("(3) exit");
+        System.out.print("Choose an option: ");
+    }
+
+    private void selectGameOption(int optionSelected) {
+        switch (optionSelected) {
+            case 1:
+                this.play();
+                break;
+            case 2:
+                System.out.print("Tetravex is an edge-matching puzzle. " +
+                        "You have a 3x3 grid and 9 square tiles, each with a different number on each side." +
+                        " The objective of the game is to place the tiles in the grid in the proper position as fast as possible. " +
+                        "Neighbor tiles edge number must equal.");
+                System.out.println();
+                run();
+            case 3:
+                System.out.println("Exiting game");
+                break;
+            default:
+                System.err.println("Wrong input ");
+                run();
+                break;
+        }
+    }
+
+    public void run(){
+        displayGameMenu();
+        String line = scanner.nextLine().toUpperCase();
+        int position1 = line.charAt(0) - '0';
+        selectGameOption(position1);
     }
 
     public void play(){
@@ -25,11 +73,12 @@ public class ConsoleUI {
             field.chceckIfBoardIsCorrect();
         } while (field.getState() == GameState.PLAYING);
         printField(field.newPole);
-
+        System.out.println("Time: " + field.getScore());
         if (field.getState() == GameState.FAILED) {
             System.out.println("Wrong solution!");
         } else {
             System.out.println("Game solved!");
+            scoreService.addScore(new Score("tetravex", System.getProperty("user.name"), field.getScore(), new Date()));
         }
     }
 
@@ -89,6 +138,12 @@ public class ConsoleUI {
             int position1 = line.charAt(1) - '0';
             int position2 = line.charAt(2) - '0';
 
+            if (position1 == 0 || position2 == 0){
+                System.err.println("Wrong input " + line);
+                System.out.println();
+                continue;
+            }
+
             if (line.startsWith("P")) {
                 if (field.newPole.get(position2-1).getState() == TileState.EMPTY & field.pole.get(position1-1).getState() == TileState.FILLED) {
                     field.addTile(position1 - 1, position2 - 1);
@@ -109,6 +164,10 @@ public class ConsoleUI {
                     System.out.println("You can't do this!");
                     continue;
                 }
+            } else{
+                System.err.println("Wrong input " + line);
+                System.out.println();
+                continue;
             }
         }
     }
