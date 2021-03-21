@@ -1,4 +1,4 @@
-package sk.tuke.gamestudio.game.tetravex.core.service;
+package sk.tuke.gamestudio.game.tetravex.service;
 
 import org.junit.Test;
 import sk.tuke.gamestudio.game.tetravex.entity.Score;

@@ -34,7 +34,8 @@ public class ConsoleUI {
         System.out.println("(2) Show rules");
         System.out.println("(3) Show top Score");
         System.out.println("(4) Reset Score");
-        System.out.println("(5) Exit");
+        System.out.println("(5) Show comments");
+        System.out.println("(6) Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -51,7 +52,7 @@ public class ConsoleUI {
                 System.out.println();
                 run();
                 break;
-            case 5:
+            case 6:
                 System.out.println("Exiting game");
                 break;
             case 3:
@@ -62,6 +63,10 @@ public class ConsoleUI {
                 resetScore();
                 run();
                 break;
+            case 5:
+                printComments();
+                System.out.println();
+                run();break;
             default:
                 System.err.println("Wrong input ");
                 run();
@@ -194,6 +199,14 @@ public class ConsoleUI {
             System.out.printf("%s %d\n", score.getPlayer(), score.getPoints());
         }
     }
+
+    private void printComments() {
+        List<Comment> comments = commentService.getComments(GAME_NAME);
+        for (Comment comment : comments) {
+            System.out.printf("%s %s\n", comment.getPlayer(), comment.getComment());
+        }
+    }
+
     private void resetScore(){
         scoreService.reset();
     }
@@ -208,7 +221,8 @@ public class ConsoleUI {
         System.out.println("Rate game from 1-5: ");
         int rating = new Scanner(System.in).nextInt();
         ratingService.setRating(new Rating("tetravex",System.getProperty("user.name"), rating, new Date()));
-        System.out.println(ratingService.getAverageRating("tetravex"));
+        System.out.println();
+        System.out.println("Average rating: " + ratingService.getAverageRating("tetravex"));
     }
 
 }
