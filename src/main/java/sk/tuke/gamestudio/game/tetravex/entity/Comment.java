@@ -13,7 +13,7 @@ public class Comment{
 
     public Comment() {}
 
-    public Comment(String player, String game, String comment, Date commentedOn) {
+    public Comment(String game, String player, String comment, Date commentedOn) {
         this.player = player;
         this.game = game;
         this.comment = comment;

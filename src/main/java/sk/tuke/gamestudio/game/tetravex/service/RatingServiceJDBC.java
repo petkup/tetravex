@@ -11,9 +11,9 @@ public class RatingServiceJDBC implements RatingService {
     public static final String USER = "postgres";
     public static final String PASSWORD = "postgres";
     public static final String SELECT = "SELECT rating FROM rating WHERE game = ? AND player = ?";
-    public static final String DELETE = "DELETE FROM comment";
+    public static final String DELETE = "DELETE FROM rating";
     private static final String SELECT_AVG_RATING = "SELECT avg(rating) FROM rating WHERE game = ?";
-    public static final String INSERT = "INSERT INTO rating (game, player, rating, ratedon) VALUES (?, ?, ?, ?) ON CONFLICT (player, game) DO UPDATE SET rating=?, ratedon=?";
+    public static final String INSERT = "INSERT INTO rating (game, player, rating, ratedon) VALUES (?, ?, ?, ?)";
 
 
     @Override
@@ -23,9 +23,9 @@ public class RatingServiceJDBC implements RatingService {
                 ps.setString(1, rating.getGame());
                 ps.setString(2, rating.getPlayer());
                 ps.setInt(3, rating.getRating());
-                ps.setDate(4, new Date(rating.getRatedon().getTime()));
-                ps.setInt(5, rating.getRating());
-                ps.setDate(6, new Date(rating.getRatedon().getTime()));
+                ps.setTimestamp(4, new Timestamp(rating.getRatedon().getTime()));
+               // ps.setInt(5, rating.getRating());
+               // ps.setTimestamp(6, new Timestamp(rating.getRatedon().getTime()));
 
                 ps.executeUpdate();
                 ps.closeOnCompletion();
@@ -74,10 +74,10 @@ public class RatingServiceJDBC implements RatingService {
                     }
                 }
             } catch (SQLException e) {
-                throw new GamestudioException("Problem inserting score", e);
+                throw new GamestudioException("Problem inserting rating", e);
             }
         } catch (SQLException e) {
-            throw new GamestudioException("Problem inserting score", e);
+            throw new GamestudioException("Problem inserting rating", e);
         }
 
         return rating;
@@ -90,7 +90,7 @@ public class RatingServiceJDBC implements RatingService {
         ) {
             statement.executeUpdate(DELETE);
         } catch (SQLException e) {
-            throw new GamestudioException("Problem deleting score", e);
+            throw new GamestudioException("Problem deleting rating", e);
         }
     }
 }

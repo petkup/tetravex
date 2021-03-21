@@ -27,7 +27,7 @@ public class CommentServiceJDBC implements CommentService{
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new GamestudioException("Problem inserting score", e);
+            throw new GamestudioException("Problem inserting comment", e);
         }
     }
 
@@ -62,7 +62,7 @@ public class CommentServiceJDBC implements CommentService{
         ) {
             statement.executeUpdate(DELETE);
         } catch (SQLException e) {
-            throw new GamestudioException("Problem deleting score", e);
+            throw new GamestudioException("Problem deleting comment", e);
         }
 
     }

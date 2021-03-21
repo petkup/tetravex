@@ -6,7 +6,8 @@ import sk.tuke.gamestudio.game.tetravex.core.Field;
 public class Main {
 
     public static void main(String[] args) {
-	    Field field = new Field(9,9);
+        System.out.println("VELCOME TO TETRAVEX");
+        Field field = new Field(9,9);
         ConsoleUI ui = new ConsoleUI(field);
         ui.run();
     }
