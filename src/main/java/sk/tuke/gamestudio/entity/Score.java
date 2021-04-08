@@ -1,4 +1,4 @@
-package sk.tuke.gamestudio.game.tetravex.entity;
+package sk.tuke.gamestudio.entity;
 
 import java.util.Date;
 

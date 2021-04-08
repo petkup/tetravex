@@ -1,9 +1,7 @@
-package sk.tuke.gamestudio.game.tetravex.service;
+package sk.tuke.gamestudio.service;
 
 import org.junit.Test;
-import sk.tuke.gamestudio.game.tetravex.entity.Score;
-import sk.tuke.gamestudio.game.tetravex.service.ScoreService;
-import sk.tuke.gamestudio.game.tetravex.service.ScoreServiceJDBC;
+import sk.tuke.gamestudio.entity.Score;
 
 import java.util.Date;
 import java.util.List;

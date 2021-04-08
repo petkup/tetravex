@@ -1,8 +1,6 @@
-package sk.tuke.gamestudio.game.tetravex.service;
+package sk.tuke.gamestudio.service;
 
-import sk.tuke.gamestudio.game.tetravex.entity.Rating;
-
-import java.util.List;
+import sk.tuke.gamestudio.entity.Rating;
 
 public interface RatingService {
     void setRating(Rating rating);

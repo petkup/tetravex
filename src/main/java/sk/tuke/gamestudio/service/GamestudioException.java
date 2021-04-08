@@ -1,4 +1,4 @@
-package sk.tuke.gamestudio.game.tetravex.service;
+package sk.tuke.gamestudio.service;
 
 public class GamestudioException extends RuntimeException{
     public GamestudioException() {

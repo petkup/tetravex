@@ -1,9 +1,8 @@
-package sk.tuke.gamestudio.game.tetravex.service;
+package sk.tuke.gamestudio.service;
 
-import sk.tuke.gamestudio.game.tetravex.entity.Rating;
+import sk.tuke.gamestudio.entity.Rating;
 
 import java.sql.*;
-import java.util.List;
 
 public class RatingServiceJDBC implements RatingService {
 

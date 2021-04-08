@@ -4,10 +4,10 @@ import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.game.tetravex.core.GameState;
 import sk.tuke.gamestudio.game.tetravex.core.Tile;
 import sk.tuke.gamestudio.game.tetravex.core.TileState;
-import sk.tuke.gamestudio.game.tetravex.entity.Comment;
-import sk.tuke.gamestudio.game.tetravex.entity.Rating;
-import sk.tuke.gamestudio.game.tetravex.entity.Score;
-import sk.tuke.gamestudio.game.tetravex.service.*;
+import sk.tuke.gamestudio.entity.Comment;
+import sk.tuke.gamestudio.entity.Rating;
+import sk.tuke.gamestudio.entity.Score;
+import sk.tuke.gamestudio.service.*;
 
 import java.util.Date;
 import java.util.List;
@@ -82,6 +82,7 @@ public class ConsoleUI {
     }
 
     public void play(){
+        printField(field.originalPole);
         do {
             printField(field.pole);
             System.out.println();

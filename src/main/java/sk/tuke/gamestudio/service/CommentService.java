@@ -1,6 +1,6 @@
-package sk.tuke.gamestudio.game.tetravex.service;
+package sk.tuke.gamestudio.service;
 
-import sk.tuke.gamestudio.game.tetravex.entity.Comment;
+import sk.tuke.gamestudio.entity.Comment;
 
 import java.util.List;
 
