@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tetravex.iml" filepath="$PROJECT_DIR$/Tetravex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gamestudio2021.iml" filepath="$PROJECT_DIR$/gamestudio2021.iml" />
     </modules>
   </component>
 </project>

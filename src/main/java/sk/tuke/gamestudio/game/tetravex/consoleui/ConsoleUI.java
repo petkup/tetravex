@@ -82,7 +82,6 @@ public class ConsoleUI {
     }
 
     public void play(){
-        printField(field.originalPole);
         do {
             printField(field.pole);
             System.out.println();
