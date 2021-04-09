@@ -1,9 +1,11 @@
 package sk.tuke.gamestudio.service;
 
+import org.springframework.stereotype.Component;
 import sk.tuke.gamestudio.entity.Rating;
 
 import java.sql.*;
 
+@Component
 public class RatingServiceJDBC implements RatingService {
 
     public static final String URL = "jdbc:postgresql://localhost/gamestudio";

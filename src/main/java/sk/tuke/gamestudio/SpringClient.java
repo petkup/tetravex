@@ -9,6 +9,7 @@ import sk.tuke.gamestudio.game.tetravex.consoleui.ConsoleUI;
 import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.service.ScoreService;
 import sk.tuke.gamestudio.service.ScoreServiceJDBC;
+import sk.tuke.gamestudio.service.ScoreServiceJPA;
 
 
 @SpringBootApplication
@@ -18,4 +19,26 @@ public class SpringClient {
         SpringApplication.run(SpringClient.class);
 
     }
+
+    @Bean
+    public CommandLineRunner runner(ConsoleUI ui) {
+        return args -> ui.run();
+    }
+
+    @Bean
+    public ConsoleUI consoleUI(Field field) {
+        return new ConsoleUI(field);
+    }
+
+    @Bean
+    public Field field() {
+        return new Field(9, 9);
+    }
+
+    @Bean
+    public ScoreService scoreService() {
+        //return new ScoreServiceJDBC();
+        return new ScoreServiceJPA();
+    }
+
 }

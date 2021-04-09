@@ -1,5 +1,6 @@
 package sk.tuke.gamestudio.game.tetravex.consoleui;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.game.tetravex.core.GameState;
 import sk.tuke.gamestudio.game.tetravex.core.Tile;
@@ -19,15 +20,25 @@ public class ConsoleUI {
 
     private final Scanner scanner = new Scanner(System.in);
 
-    private ScoreService scoreService = new ScoreServiceJDBC();
+    //private ScoreService scoreService = new ScoreServiceJDBC();
 
-    private CommentService commentService = new CommentServiceJDBC();
+    //private CommentService commentService = new CommentServiceJDBC();
 
-    private RatingService ratingService = new RatingServiceJDBC();
+    //private RatingService ratingService = new RatingServiceJDBC();
+
+    @Autowired
+    private ScoreService scoreService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private RatingService ratingService;
 
     public ConsoleUI(Field field) {
         this.field = field;
     }
+
 
     private void displayGameMenu() {
         System.out.println("(1) Start new game");

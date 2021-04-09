@@ -1,8 +1,22 @@
 package sk.tuke.gamestudio.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Rating {
+@Entity
+@NamedQuery( name = "Rating.getRating",
+        query = "SELECT (r.rating) FROM Rating r WHERE r.game=:game")
+@NamedQuery( name = "Rating.getAverageRating",
+        query = "SELECT AVG(r.rating) FROM Rating r WHERE r.game=:game")
+public class Rating implements Serializable {
+    @Id
+    @GeneratedValue
+    private int ident;
+
     private String player;
     private String game;
     private int rating;

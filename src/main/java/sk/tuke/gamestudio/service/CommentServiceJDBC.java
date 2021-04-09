@@ -1,11 +1,13 @@
 package sk.tuke.gamestudio.service;
 
+import org.springframework.stereotype.Component;
 import sk.tuke.gamestudio.entity.Comment;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CommentServiceJDBC implements CommentService{
 
     public static final String URL = "jdbc:postgresql://localhost/gamestudio";
