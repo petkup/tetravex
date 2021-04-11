@@ -35,7 +35,7 @@ public class RatingServiceJPA implements RatingService {
 
     @Override
     public void reset() {
-        entityManager.createNativeQuery("delete from score").executeUpdate();
+        entityManager.createNativeQuery("delete from rating").executeUpdate();
     }
 
 }

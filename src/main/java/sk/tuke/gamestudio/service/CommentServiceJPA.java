@@ -26,6 +26,6 @@ public class CommentServiceJPA implements CommentService {
 
     @Override
     public void reset() {
-        entityManager.createNativeQuery("delete from score").executeUpdate();
+        entityManager.createNativeQuery("delete from commnet").executeUpdate();
     }
 }

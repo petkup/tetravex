@@ -2,6 +2,7 @@ package sk.tuke.gamestudio.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import sk.tuke.gamestudio.entity.Score;
 
@@ -30,4 +31,6 @@ public class ScoreServiceRestClient implements ScoreService {
     public void reset() {
         throw new UnsupportedOperationException("Not supported via web service");
     }
+
+
 }

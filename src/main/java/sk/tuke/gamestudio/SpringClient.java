@@ -8,9 +8,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.web.client.RestTemplate;
 import sk.tuke.gamestudio.game.tetravex.consoleui.ConsoleUI;
 import sk.tuke.gamestudio.game.tetravex.core.Field;
 import sk.tuke.gamestudio.service.*;
+import sk.tuke.gamestudio.service.ScoreService;
+import sk.tuke.gamestudio.service.ScoreServiceJDBC;
+import sk.tuke.gamestudio.service.ScoreServiceJPA;
+import sk.tuke.gamestudio.service.ScoreServiceRestClient;
+
 
 
 @SpringBootApplication
@@ -40,22 +46,27 @@ public class SpringClient {
     }
 
     @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
     public ScoreService scoreService() {
         //return new ScoreServiceJDBC();
-        return new ScoreServiceJPA();
-        //return new ScoreServiceRestClient();
+        //return new ScoreServiceJPA();
+        return new ScoreServiceRestClient();
     }
     @Bean
     public CommentService commentService() {
         //return new ScoreServiceJDBC();
-        return new CommentServiceJPA();
-        //return new ScoreServiceRestClient();
+        //return new CommentServiceJPA();
+        return new CommentServiceRestClient();
     }
     @Bean
     public RatingService ratingService() {
-        //return new ScoreServiceJDBC();
-        return new RatingServiceJPA();
-        //return new ScoreServiceRestClient();
+        //return new RatingServiceJDBC();
+        //return new RatingServiceJPA();
+        return new RatingServiceRestClient();
     }
 
 }
