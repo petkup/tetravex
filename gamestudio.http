@@ -1,0 +1,33 @@
+POST http://localhost:8082/api/score
+Content-Type: application/json
+
+{
+"game": "tetravex",
+  "player": "jano",
+  "points": "50",
+  "playedOn":"2019-03-25T12:40:33"
+}
+
+###
+POST http://localhost:8082/api/comment
+Content-Type: application/json
+
+{
+  "game": "tetravex",
+  "player": "jano",
+  "comment": "dobra hra",
+  "commentedOn":"2019-03-25T12:40:33"
+}
+
+###
+POST http://localhost:8082/api/rating
+Content-Type: application/json
+
+{
+  "game": "tetravex",
+  "player": "jano",
+  "rating": "50",
+  "ratedOn":"2019-03-25T12:40:33"
+}
+
+###

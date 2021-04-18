@@ -26,7 +26,7 @@ public class RatingServiceRestClient implements RatingService {
 
     @Override
     public int getAverageRating(String game) {
-        return restTemplate.getForEntity(url + "/rating" + game, Integer.class).getBody();
+        return restTemplate.getForEntity(url + "/rating/" + game, Integer.class).getBody();
     }
 
     @Override
@@ -36,6 +36,6 @@ public class RatingServiceRestClient implements RatingService {
 
     @Override
     public void reset() {
-
+        throw new UnsupportedOperationException("Not supported via web service");
     }
 }

@@ -10,6 +10,7 @@ import sk.tuke.gamestudio.entity.Rating;
 import sk.tuke.gamestudio.entity.Score;
 import sk.tuke.gamestudio.service.*;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -44,9 +45,9 @@ public class ConsoleUI {
         System.out.println("(1) Start new game");
         System.out.println("(2) Show rules");
         System.out.println("(3) Show top Score");
-        System.out.println("(4) Reset Score");
-        System.out.println("(5) Show comments");
-        System.out.println("(6) Exit");
+        //System.out.println("(4) Reset Score");
+        System.out.println("(4) Show comments");
+        System.out.println("(5) Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -63,7 +64,7 @@ public class ConsoleUI {
                 System.out.println();
                 run();
                 break;
-            case 6:
+            case 5:
                 System.out.println("Exiting game");
                 break;
             case 3:
@@ -71,10 +72,6 @@ public class ConsoleUI {
                 run();
                 break;
             case 4:
-                resetScore();
-                run();
-                break;
-            case 5:
                 printComments();
                 System.out.println();
                 run();break;
@@ -206,8 +203,10 @@ public class ConsoleUI {
 
     private void printTopScores() {
         List<Score> scores = scoreService.getTopScore(GAME_NAME);
+        //Collections.sort(scores);
         for (Score score : scores) {
             System.out.printf("%s %d\n", score.getPlayer(), score.getPoints());
+            //System.out.println(scores);
         }
     }
 
@@ -216,10 +215,6 @@ public class ConsoleUI {
         for (Comment comment : comments) {
             System.out.printf("%s %s\n", comment.getPlayer(), comment.getComment());
         }
-    }
-
-    private void resetScore(){
-        scoreService.reset();
     }
 
     private void comment(){
