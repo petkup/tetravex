@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gamestudio</title>
+    <link th:href="@{/css/stylesheet.css}" rel="stylesheet" />
+    <span th:utext="${@tetravexController.getCss()}"/>
+
+</head>
+
+<body>
+<h1>Tetravex</h1>
+
+<div class = "chessboard">
+<div onclick="location.href='#';" style="cursor: pointer;">
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+<div class="tetravexpiece"></div>
+</div>
+</div>
+
+<div class = "chessboard">
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+<div class="emptyPiece"></div>
+</div>
+
+
+<span th:utext="${@tetravexController.htmlField}"/>
+</body>
+</html>

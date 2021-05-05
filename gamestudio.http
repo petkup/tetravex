@@ -5,7 +5,7 @@ Content-Type: application/json
 "game": "tetravex",
   "player": "jano",
   "points": "50",
-  "playedOn":"2019-03-25T12:40:33"
+  "playedAt":"2019-03-25T12:40:33"
 }
 
 ###
