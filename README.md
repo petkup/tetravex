@@ -6,3 +6,14 @@ the game is composed of simple menu and game. tiles ale placed Randomly at the b
 
 
 ![Snímka obrazovky 2025-01-21 153747](https://github.com/user-attachments/assets/2c2ea11c-106c-49ca-9d2f-ed01ce185b93)
+
+
+Player can put tyles from top field to bottom by typing p + position of top tyile + position of bottom tyle, for example *p15* = *put* tyle in *position 1* from top field to *position 5* in bottom field. Player can also remove tyles from bottom field to top by typing r instead of p.
+
+Mid game example:
+
+![Snímka obrazovky 2025-01-21 160446](https://github.com/user-attachments/assets/ff239523-86a5-4063-90fb-7cbe32b163d3)
+
+Players wins if all tyles are placed correctly.
+
+![Snímka obrazovky 2025-01-21 160001](https://github.com/user-attachments/assets/1188fe68-786e-400f-bade-1f880cdf7222)
